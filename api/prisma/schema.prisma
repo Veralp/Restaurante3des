@@ -33,7 +33,7 @@ model Cliente {
   telefones           String
   enderecoCep         String
   enderecoNumero      String
-  enderecoComplemento String
+  enderecoComplemento String?
   pedidos             Pedido[]
 }
 

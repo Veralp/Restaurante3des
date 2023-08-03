@@ -16,3 +16,29 @@ O restaurante XPTO possui um cardápio e atende clientes que comem no local e re
         - RN02.2.1 Página de relatórios (BI)
     - RN02.3 App para Cozinha
     - RN02.4 App Entregas
+
+## Como testar localmente
+### Necessário ter instalado
+- VsCode
+- NodeJS 16 LTS
+- XAMPP v3.3.0
+### Passos
+- Clonar este repositório
+- Abrir com VsCode
+- Navegar até o diretório "api"
+```bash
+cd api
+```
+- Criar o arquivo **.env** contendo
+```env
+DATABASE_URL="mysql://root@localhost:3306/restaurante?schema=public&timezone=UTC"
+```
+- Abrir o XAMPP Control Panel e dar start em Apache e MySQL
+- Executar o comando para criar a implantação/migração do Banco de Dados
+```bash
+prisma migrate dev --name "descricao"
+```
+OBS: Antes da migração, deve instalar o ORM prisma Globalmente
+```
+npm i -g prisma
+```
