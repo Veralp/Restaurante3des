@@ -58,4 +58,5 @@ model Itens {
   cardapioId Int
   cardapio   Cardapio @relation(fields: [cardapioId], references: [id])
   quantidade Int
+  valor      Float
 }
