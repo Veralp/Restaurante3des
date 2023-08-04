@@ -43,3 +43,4 @@ OBS: Antes da migração, deve instalar o ORM prisma Globalmente
 ```
 npm i -g prisma
 ```
+- Caso queira dados de teste, execute o script ./testes/usuarios.sql
