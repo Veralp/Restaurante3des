@@ -25,9 +25,10 @@ O restaurante XPTO possui um cardápio e atende clientes que comem no local e re
 ### Passos
 - Clonar este repositório
 - Abrir com VsCode
-- Navegar até o diretório "api"
+- Navegar até o diretório "api" e instale as dependências
 ```bash
 cd api
+npm i
 ```
 - Criar o arquivo **.env** contendo
 ```env
