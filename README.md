@@ -22,7 +22,8 @@ O restaurante XPTO possui um cardápio e atende clientes que comem no local e re
 - VsCode
 - NodeJS 16 LTS
 - XAMPP v3.3.0
-### Passos
+- Insomnia
+### API
 - Clonar este repositório
 - Abrir com VsCode
 - Navegar até o diretório "api" e instale as dependências
@@ -43,4 +44,12 @@ OBS: Antes da migração, deve instalar o ORM prisma Globalmente
 ```
 npm i -g prisma
 ```
-- Caso queira dados de teste, execute o script ./testes/usuarios.sql
+- Caso queira dados de teste, execute o script ./testes/usuarios.sql no banco de Dados
+    - Se estiver utilizando o XAMPP copie os dados e cole no PHPMyAdmin
+
+- Para executar a API
+```bash
+nodemon
+```
+- Para testar a API abra o aplicativo **Insomnia** ou outro que preferir com postman.
+- Importe o aquivo ./testes/Insomnia.json
