@@ -30,6 +30,25 @@ const read = async (req, res) => {
 
 const readCozinha = async (req, res) => {
     const pedido = await prisma.pedido.findMany({
+        select: {
+            "id": true,
+            "clienteId": true,
+            "clienteId": true,
+            "motoboyId": true,
+            "dataPedido": true,
+            "dataCozinha": true,
+            "dataEntrega": true,
+            "valorPedido": true,
+            "valorEntrega": true,
+            "itens": {
+                select: {
+                    "id": true,
+                    "quantidade": true,
+                    "valor": true,
+                    "cardapio": true
+                }
+            }
+        },
         where: {
             "dataCozinha": null,
             "dataEntrega": null
@@ -41,6 +60,26 @@ const readCozinha = async (req, res) => {
 
 const readEntrega = async (req, res) => {
     const pedido = await prisma.pedido.findMany({
+        select: {
+            id: true,
+            clienteId: true,
+            "clienteId": true,
+            "motoboyId": true,
+            "dataPedido": true,
+            "dataCozinha": true,
+            "dataEntrega": true,
+            "valorPedido": true,
+            "valorEntrega": true,
+            "itens": {
+                select: {
+                    "id": true,
+                    "quantidade": true,
+                    "valor": true,
+                    "cardapio": true
+                }
+            },
+            "cliente": true
+        },
         where: {
             "dataCozinha": { not: null },
             "dataEntrega": null
@@ -50,16 +89,13 @@ const readEntrega = async (req, res) => {
 }
 
 const readHoje = async (req, res) => {
-    const hoje = new Date().toISOString().slice(0, 10);
-    const pedido = await prisma.pedido.findMany({
-        where: {
-            //SELECT * FROM Pedido WHERE dataPedido LIKE CONCAT(CURDATE(),"%")
-            dataPedido: {
-                startsWith: hoje
-            }
-        }
-    });
-    return res.json(pedido).end();
+    try {
+        const hoje = new Date().toISOString().slice(0, 10);
+        const result = await prisma.$queryRaw`SELECT * FROM Pedido WHERE dataPedido LIKE CONCAT(${hoje},'%')`;
+        return res.json(result).end();
+    } catch (error) {
+        return res.status(404).json({ error: error.message }).end();
+    }
 }
 
 const update = async (req, res) => {

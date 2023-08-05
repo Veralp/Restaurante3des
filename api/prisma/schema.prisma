@@ -54,7 +54,7 @@ model Pedido {
 model Itens {
   id         Int      @id @default(autoincrement())
   pedidoId   Int
-  pedido     Pedido   @relation(fields: [pedidoId], references: [id])
+  pedido     Pedido   @relation(fields: [pedidoId], references: [id], onDelete: Cascade)
   cardapioId Int
   cardapio   Cardapio @relation(fields: [cardapioId], references: [id])
   quantidade Int

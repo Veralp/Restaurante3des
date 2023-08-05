@@ -6,6 +6,7 @@ const motoboy = require('./controllers/motoboy.controller');
 const cliente = require('./controllers/cliente.controller');
 const cardapio = require('./controllers/cardapio.controller');
 const pedido = require('./controllers/pedido.controller');
+const itens = require('./controllers/itens.controller');
 
 router.get('/', (req, res) => { return res.json("API Restaurante respondendo") });
 
@@ -35,5 +36,11 @@ router.get('/pedido/hoje', pedido.readHoje);
 router.get('/pedido/:id', pedido.read);
 router.put('/pedido', pedido.update);
 router.delete('/pedido/:id', pedido.del);
+
+router.post('/itens', itens.create);
+router.get('/itens', itens.read);
+router.get('/itens/:id', itens.read);
+router.put('/itens', itens.update);
+router.delete('/itens/:id', itens.del);
 
 module.exports = router;
