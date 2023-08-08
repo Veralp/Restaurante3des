@@ -27,13 +27,13 @@ insert into cardapio values
 (default, "Cerveja de 350ml", "Cerveja de 350ml", 5.00);
 
 insert into pedido values
-(default, 1, 1, DATE_ADD(curtime(), INTERVAL -2145 minute), DATE_ADD(curtime(), INTERVAL -2125 minute), DATE_ADD(curtime(), INTERVAL -2125 minute), 0, 0),
-(default, 2, 2, DATE_ADD(curtime(), INTERVAL -2136 minute), DATE_ADD(curtime(), INTERVAL -2120 minute), DATE_ADD(curtime(), INTERVAL -2068 minute), 0, 5),
-(default, 3, 2, DATE_ADD(curtime(), INTERVAL -2131 minute), DATE_ADD(curtime(), INTERVAL -2125 minute), DATE_ADD(curtime(), INTERVAL -2050 minute), 0, 6),
-(default, 4, 3, DATE_ADD(curtime(), INTERVAL -2128 minute), DATE_ADD(curtime(), INTERVAL -2100 minute), DATE_ADD(curtime(), INTERVAL -2080 minute), 0, 10),
-(default, 5, 3, DATE_ADD(curtime(), INTERVAL -2122 minute), DATE_ADD(curtime(), INTERVAL -2110 minute), DATE_ADD(curtime(), INTERVAL -2098 minute), 0, 8),
-(default, 1, 1, DATE_ADD(curtime(), INTERVAL -2120 minute), DATE_ADD(curtime(), INTERVAL -2108 minute), DATE_ADD(curtime(), INTERVAL -2108 minute), 0, 0),
-(default, 1, 1, DATE_ADD(curtime(), INTERVAL -2115 minute), DATE_ADD(curtime(), INTERVAL -2105 minute), DATE_ADD(curtime(), INTERVAL -2105 minute), 0, 0),
+(default, 1, 1, DATE_ADD(curtime(), INTERVAL -1145 minute), DATE_ADD(curtime(), INTERVAL -1125 minute), DATE_ADD(curtime(), INTERVAL -1125 minute), 0, 0),
+(default, 2, 2, DATE_ADD(curtime(), INTERVAL -1136 minute), DATE_ADD(curtime(), INTERVAL -1120 minute), DATE_ADD(curtime(), INTERVAL -1068 minute), 0, 5),
+(default, 3, 2, DATE_ADD(curtime(), INTERVAL -1131 minute), DATE_ADD(curtime(), INTERVAL -1125 minute), DATE_ADD(curtime(), INTERVAL -1050 minute), 0, 6),
+(default, 4, 3, DATE_ADD(curtime(), INTERVAL -1128 minute), DATE_ADD(curtime(), INTERVAL -1100 minute), DATE_ADD(curtime(), INTERVAL -1080 minute), 0, 10),
+(default, 5, 3, DATE_ADD(curtime(), INTERVAL -1122 minute), DATE_ADD(curtime(), INTERVAL -1110 minute), DATE_ADD(curtime(), INTERVAL -1098 minute), 0, 8),
+(default, 1, 1, DATE_ADD(curtime(), INTERVAL -1120 minute), DATE_ADD(curtime(), INTERVAL -1108 minute), DATE_ADD(curtime(), INTERVAL -1108 minute), 0, 0),
+(default, 1, 1, DATE_ADD(curtime(), INTERVAL -1115 minute), DATE_ADD(curtime(), INTERVAL -1105 minute), DATE_ADD(curtime(), INTERVAL -1105 minute), 0, 0),
 (default, 1, 1, DATE_ADD(curtime(), INTERVAL -65 minute), DATE_ADD(curtime(), INTERVAL -30 minute), DATE_ADD(curtime(), INTERVAL -30 minute), 0, 0),
 (default, 2, 2, DATE_ADD(curtime(), INTERVAL -45 minute), DATE_ADD(curtime(), INTERVAL -20 minute), DATE_ADD(curtime(), INTERVAL -5 minute), 0, 5),
 (default, 3, 3, DATE_ADD(curtime(), INTERVAL -30 minute), DATE_ADD(curtime(), INTERVAL -15 minute), null, 0, 5),
@@ -54,7 +54,7 @@ insert into itens values
 (default,8, 8, 1, (select preco from cardapio where id = 8)),
 (default,9, 1, 2, (select preco from cardapio where id = 1)),
 (default,10, 4, 1, (select preco from cardapio where id = 4)),
-(default,11, 6, 1, (select preco from cardapio where id = 6));
+(default,11, 2, 1, (select preco from cardapio where id = 6));
 
 
 -- Cadastrar a horaCozinha e horaEntrega para finalizar o pedido
