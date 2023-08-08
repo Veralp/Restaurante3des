@@ -39,7 +39,12 @@ const readCozinha = async (req, res) => {
             "dataEntrega": true,
             "valorPedido": true,
             "valorEntrega": true,
-            "itens": true
+            "itens": {
+                select: {
+                    "quantidade": true,
+                    "cardapio": true
+                }
+            }
         },
         where: {
             "dataCozinha": null,
@@ -62,7 +67,12 @@ const readEntrega = async (req, res) => {
             "dataEntrega": true,
             "valorPedido": true,
             "valorEntrega": true,
-            "itens": true,
+            "itens": {
+                select: {
+                    "quantidade": true,
+                    "cardapio": true
+                }
+            },
             "cliente": true
         },
         where: {
