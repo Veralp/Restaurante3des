@@ -4,11 +4,10 @@ import styles from './styles'
 const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Text>Página Home</Text>
             <TouchableOpacity
                 style={styles.button}
                 onPress={() => navigation.navigate('PedidosScreen')}>
-                <Text>Pedidos</Text>
+                <Text style={styles.text}>Pedidos</Text>
             </TouchableOpacity>
         </View>
     );
