@@ -37,7 +37,9 @@ insert into pedido values
 (default, 1, 1, DATE_ADD(curtime(), INTERVAL -65 minute), DATE_ADD(curtime(), INTERVAL -30 minute), DATE_ADD(curtime(), INTERVAL -30 minute), 0, 0),
 (default, 2, 2, DATE_ADD(curtime(), INTERVAL -45 minute), DATE_ADD(curtime(), INTERVAL -20 minute), DATE_ADD(curtime(), INTERVAL -5 minute), 0, 5),
 (default, 3, 3, DATE_ADD(curtime(), INTERVAL -30 minute), DATE_ADD(curtime(), INTERVAL -15 minute), null, 0, 5),
-(default, 1, 1, curtime(), null, null, 0, 0);
+(default, 1, 1, curtime(), null, null, 0, 0),
+(default, 4, 2, curtime(), null, null, 0, 0),
+(default, 2, 3, curtime(), null, null, 0, 0);
 
 insert into itens values
 (default,1, 3, 1, (select preco from cardapio where id = 3)),
@@ -54,7 +56,10 @@ insert into itens values
 (default,8, 8, 1, (select preco from cardapio where id = 8)),
 (default,9, 1, 2, (select preco from cardapio where id = 1)),
 (default,10, 4, 1, (select preco from cardapio where id = 4)),
-(default,11, 2, 1, (select preco from cardapio where id = 6));
+(default,11, 1, 1, (select preco from cardapio where id = 1)),
+(default,12, 2, 1, (select preco from cardapio where id = 2)),
+(default,12, 9, 1, (select preco from cardapio where id = 9)),
+(default,13, 3, 2, (select preco from cardapio where id = 3));
 
 
 -- Cadastrar a horaCozinha e horaEntrega para finalizar o pedido
@@ -72,4 +77,6 @@ update pedido set valorPedido = (select sum(valor) from itens where pedidoId = 8
 update pedido set valorPedido = (select sum(valor) from itens where pedidoId = 9) where id = 9;
 update pedido set valorPedido = (select sum(valor) from itens where pedidoId = 10) where id = 10;
 update pedido set valorPedido = (select sum(valor) from itens where pedidoId = 11) where id = 11;
+update pedido set valorPedido = (select sum(valor) from itens where pedidoId = 12) where id = 12;
+update pedido set valorPedido = (select sum(valor) from itens where pedidoId = 13) where id = 13;
 
