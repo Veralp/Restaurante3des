@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
         borderColor: '#DDD',
         borderRadius: 5,
         padding: 10,
-        marginBottom: 10,
-        width: 300,
+        margin: 20,
+        width: 350,
     },
     text: {
         fontSize: 16,
@@ -23,12 +23,17 @@ const styles = StyleSheet.create({
     },
     button: {
         height: 42,
-        backgroundColor: '#FFBB00',
+        backgroundColor: '#AA7700',
+        borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 2,
         marginTop: 10,
     },
+    buttonText: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#fff',
+    }
 });
 
 export default styles;

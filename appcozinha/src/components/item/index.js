@@ -8,7 +8,7 @@ export default function ItemPedido({ item }) {
             renderItem={({ item }) => (
                 <View style={styles.pedido}>
                     <Text style={styles.text}>Quantidade: {item.quantidade}</Text>
-                    <Text style={styles.text}>Produto: {item.cardapio.produto}</Text>
+                    <Text style={styles.textBold}>Produto: {item.cardapio.produto}</Text>
                     <Text style={styles.text}>Descrição: {item.cardapio.descricao}</Text>
                 </View>
             )}

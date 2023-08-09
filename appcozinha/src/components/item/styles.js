@@ -7,6 +7,23 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    pedido: {
+        backgroundColor: '#fff',
+        borderTopWidth: 1,
+        borderTopColor: '#DDD',
+        padding: 10,
+        margin: 5,
+        width: "100%",
+    },
+    text: {
+        fontSize: 16,
+        color: '#333',
+    },
+    textBold: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#333',
+    },
 });
 
 export default styles;
