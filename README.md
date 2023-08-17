@@ -51,5 +51,21 @@ npm i -g prisma
 ```bash
 nodemon
 ```
-- Para testar a API abra o aplicativo **Insomnia** ou outro que preferir com postman.
-- Importe o aquivo ./testes/Insomnia.json
+- Para testar a API abra o aplicativo **Insomnia** ou outro que preferir como **postman**.
+- No caso do Insomnia pode Importar o aquivo ./testes/Insomnia.json
+
+### Aplicativo para Cozinha (React Native + Expo)
+Esta versão do aplicativo trabalha melhor com o **yarn** como gerenciador de pacotes, porém pode utilizar npm e/ou npx se preferir
+
+#### Para executar o aplicativo da cozinha
+- 1. Abra com VsCode
+- 2. Na pasta do aplicativo instale as dependências e execute via web
+```bash
+yarn
+yarn web
+```
+- ou
+```bash
+npx yarn
+npx yarn web
+```
