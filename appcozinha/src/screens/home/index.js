@@ -9,6 +9,7 @@ const HomeScreen = ({ navigation }) => {
                 onPress={() => navigation.navigate('PedidosScreen')}>
                 <Text style={styles.text}>Pedidos</Text>
             </TouchableOpacity>
+
         </View>
     );
 }
