@@ -7,7 +7,8 @@ import Endereco from '../../components/viacep';
 const EntregasScreen = ({ navigation }) => {
 
     const [pedidos, setPedidos] = useState([]);
-    const uri = 'http://localhost:3000/pedido';
+    // const uri = 'http://localhost:3000/pedido';
+    const uri = 'http://10.87.202.156:3000/pedido';
 
     useEffect(() => {
         fetch(uri + '/entrega', { method: 'GET' })
@@ -62,6 +63,11 @@ const EntregasScreen = ({ navigation }) => {
                         <Text style={styles.text}>Telefones: {item.cliente.telefones}</Text>
                         <Endereco item={item.cliente.enderecoCep} />
                         <Text style={styles.text}>CEP: {item.cliente.enderecoCep}, Num: {item.cliente.enderecoNumero}, Complemento: {item.cliente.enderecoComplemento}</Text>
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress={() => navigation.navigate('MapScreen')}>
+                            <Text style={styles.text}>Mapas</Text>
+                        </TouchableOpacity>
                         <ItemPedido item={item.itens} />
                         <TouchableOpacity
                             style={styles.button}

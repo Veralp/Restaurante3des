@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
 import MapView from 'react-native-maps';
+import { StyleSheet, View } from 'react-native';
 
 const MapScreen = () => {
   return (
@@ -8,8 +8,8 @@ const MapScreen = () => {
       <MapView
         style={styles.map}
         initialRegion={{
-          latitude: -23.5505, // Latitude da posição
-          longitude: -46.6333, // Longitude da posição
+          latitude: -22.703042, // Latitude da posição
+          longitude: -46.9954954, // Longitude da posição
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
@@ -21,8 +21,6 @@ const MapScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   map: {
     width: '100%',

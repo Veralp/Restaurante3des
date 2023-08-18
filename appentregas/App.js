@@ -20,6 +20,11 @@ export default function App() {
           component={EntregasScreen}
           options={{ title: 'Entregas' }}
         />
+        {/* <Stack.Screen
+          name="MapScreen"
+          component={MapScreen}
+          options={{ title: 'Mapa' }}
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
