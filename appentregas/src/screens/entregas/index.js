@@ -7,8 +7,8 @@ import Endereco from '../../components/viacep';
 const EntregasScreen = ({ navigation }) => {
 
     const [pedidos, setPedidos] = useState([]);
-    // const uri = 'http://localhost:3000/pedido';
-    const uri = 'http://10.87.202.156:3000/pedido';
+    const uri = 'http://localhost:3000/pedido';
+    //const uri = 'http://10.87.202.156:3000/pedido';
 
     useEffect(() => {
         fetch(uri + '/entrega', { method: 'GET' })
