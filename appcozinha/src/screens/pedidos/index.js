@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { View, Image, Text, FlatList, TouchableOpacity } from 'react-native';
 import styles from './styles'
 import ItemPedido from '../../components/item';
 
@@ -40,6 +40,10 @@ const PedidosScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+            <Image
+                style={styles.fundo}
+                source={require('../../../assets/splash.png')}
+            />
             <FlatList
                 data={pedidos}
                 renderItem={({ item }) => (

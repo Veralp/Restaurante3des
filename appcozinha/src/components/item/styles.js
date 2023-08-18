@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     pedido: {
-        backgroundColor: '#fff',
+        backgroundColor: '#FFF',
         borderTopWidth: 1,
         borderTopColor: '#DDD',
         padding: 10,

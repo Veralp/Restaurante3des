@@ -8,6 +8,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 20,
     },
+    fundo: {
+        width: "100%",
+        height: "100%",
+        position: 'absolute',
+        top: 0,
+        left: 0,
+    },
     button: {
         backgroundColor: '#AA7700',
         padding: 10,
