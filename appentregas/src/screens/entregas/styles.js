@@ -28,9 +28,19 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#fff',
     },
-    button: {
+    button1: {
         height: 42,
-        backgroundColor: '#885500',
+        backgroundColor: '#996600',
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+        marginLeft: 20,
+        marginRight: 20,
+    },
+    button2: {
+        height: 42,
+        backgroundColor: '#774400',
         borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
