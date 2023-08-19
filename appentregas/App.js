@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/home';
 import EntregasScreen from './src/screens/entregas';
-//import MapScreen from './src/screens/map';
+import MapScreen from './src/screens/map';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,11 +20,11 @@ export default function App() {
           component={EntregasScreen}
           options={{ title: 'Entregas' }}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           name="MapScreen"
           component={MapScreen}
           options={{ title: 'Mapa' }}
-        /> */}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

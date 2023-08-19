@@ -62,6 +62,7 @@ const EntregasScreen = ({ navigation }) => {
                         <Text style={styles.text}>Telefones: {item.cliente.telefones}</Text>
                         <Endereco item={item.cliente.enderecoCep} />
                         <Text style={styles.text}>CEP: {item.cliente.enderecoCep}, Num: {item.cliente.enderecoNumero}, Complemento: {item.cliente.enderecoComplemento}</Text>
+                        <Text style={styles.textVal}>Valor da Entrega: R$ {item.valorEntrega}</Text>
                         <TouchableOpacity
                             style={styles.button1}
                             onPress={() => navigation.navigate('MapScreen')}>
