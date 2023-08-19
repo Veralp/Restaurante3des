@@ -53,11 +53,25 @@ nodemon
 ```
 - Para testar a API abra o aplicativo **Insomnia** ou outro que preferir como **postman**.
 - No caso do Insomnia pode Importar o aquivo ./testes/Insomnia.json
+## MER x DER do Banco de Dados
+![MER](./documentos/der.png)
+## WireFrames dos Apps
+![Wireframe1](./documentos/wireframe_apps_01.png)
+![Wireframe2](./documentos/wireframe_apps_02.png)
+![Wireframe3](./documentos/wireframe_apps_03.png)
 
 ### Aplicativo para Cozinha (React Native + Expo)
 Esta versão do aplicativo trabalha melhor com o **yarn** como gerenciador de pacotes, porém pode utilizar npm e/ou npx se preferir
 
 #### Para executar o aplicativo da cozinha
+- 0. Confira se possui o expo instalado
+```bash
+expo --version
+```	
+Caso não tenha, instale globalmente
+```bash	
+npm i -g expo-cli
+```
 - 1. Abra com VsCode
 - 2. Na pasta do aplicativo instale as dependências e execute via web
 ```bash
@@ -68,4 +82,27 @@ yarn web
 ```bash
 npx yarn
 npx yarn web
+```
+
+### Aplicativo para Entregas (React Native + Expo)
+Esta versão do aplicativo trabalha melhor com o **yarn** como gerenciador de pacotes, porém pode utilizar npm e/ou npx se preferir
+
+#### Para executar o aplicativo de Entregas no emulador
+- 0. Confira se possui o expo instalado
+```bash
+expo --version
+```	
+Caso não tenha, instale globalmente
+```bash	
+npm i -g expo-cli
+```
+- 1. Abra com VsCode
+- 2. Na pasta do aplicativo instale as dependências e execute via web
+```bash
+yarn
+expo start -a
+```
+- ou
+```bash
+npx expo start -a
 ```
