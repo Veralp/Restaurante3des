@@ -1,0 +1,22 @@
+:root{
+    --fonte-padrao: 'Roboto', sans-serif;
+    --font-size-padrao: 16px;
+    --img-fundo: url("./assets/fundo.png");
+    --cor-primaria: #300d28;
+    --cor-secundaria: #70615c;
+    --cor-terciaria: #8ca38b;
+    --cor-quaternaria: #f7eeaa;
+    --cor-quintenaria: #edb552;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--cor-primaria);
+    background-size: contain;
+    background: var(--img-fundo);
+}
