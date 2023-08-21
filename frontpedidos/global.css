@@ -1,4 +1,4 @@
-:root{
+:root {
     --fonte-padrao: 'Roboto', sans-serif;
     --font-size-padrao: 16px;
     --img-fundo: url("./assets/fundo.png");
@@ -8,22 +8,23 @@
     --cor-quaternaria: #f7eeaa;
     --cor-quintenaria: #edb552;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--cor-primaria);
     background-size: contain;
     background: var(--img-fundo);
 }
 
-header{
+header {
     width: 100%;
-    height: 100px;
+    height: 10vh;
     background-color: var(--cor-secundaria);
     display: flex;
     flex-direction: row;
@@ -31,13 +32,22 @@ header{
     align-items: center;
 }
 
-header h1{
-    font-size: 40px;
+header h1 {
+    font-size: 30px;
     color: var(--cor-quintenaria);
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-nav ul{
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-big ul {
     list-style: none;
     display: flex;
     justify-content: space-around;
@@ -46,11 +56,12 @@ nav ul{
     height: 100%;
 }
 
-nav ul li{
+.nav-big ul li {
     width: 160px;
     height: 40px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     margin: 5px;
+    background-color: var(--cor-primaria);
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -58,9 +69,66 @@ nav ul li{
     cursor: pointer;
 }
 
-nav ul li a{
+.nav-big ul li a {
     text-decoration: none;
     color: var(--cor-quaternaria);
     font-size: 16px;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.sanduiche {
+    display: none;
+    width: 40px;
+    border: var(--cor-primaria) 2px solid;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.nav-small ul {
+    position: absolute;
+    top: 85px;
+    left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-small ul li {
+    width: 160px;
+    height: 40px;
+    background-color: var(--cor-primaria);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    margin: 2px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav-small ul li a {
+    text-decoration: none;
+    color: var(--cor-quaternaria);
+    font-size: 16px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.oculto{
+    display: none;
+}
+
+/*Responsividade no menu com media*/
+@media(max-width: 800px) {
+    header h1 {
+        font-size: 25px;
+    }
+    .nav-big {
+        display: none;
+    }
+    .sanduiche {
+        display: flex;
+    }
 }

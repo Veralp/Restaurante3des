@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../node_modules/axios/dist/axios.js"></script>
     <script src="../api.js"></script>
+    <script src="./script.js"></script>
     <title>Restauante XPTO</title>
 </head>
+
 <body>
     <header>
+        <img class="sanduiche" src="../assets/menu.svg" alt="Menu" onclick="menu.classList.toggle('oculto')">
         <h1>Restaurante XPTO - Pedidos</h1>
-        <nav>
+        <nav class="nav-big">
             <ul>
-                <li><a>Home</a></li>
+                <li><a href="../home">Home</a></li>
+                <li><a>Todos os pedidos</a></li>
+                <li><a>Pedidos na cozinha</a></li>
+                <li><a>Pedidos em entrega</a></li>
+                <li><a>BI</a></li>
+            </ul>
+        </nav>
+        <nav id="menu" class="nav-small oculto">
+            <ul>
+                <li><a href="../home">Home</a></li>
                 <li><a>Todos os pedidos</a></li>
                 <li><a>Pedidos na cozinha</a></li>
                 <li><a>Pedidos em entrega</a></li>
@@ -22,8 +35,22 @@
             </ul>
         </nav>
     </header>
-    <main></main>
+    <main>
+        <section id="carrinho"></section>
+        <section id="cardapio">
+            <div class="card oculto" id="prato">
+                <img clas="img" src="../assets/prato.png" alt="Ilustração">
+                <div class="card-body">
+                    <h3>Nome do prato</h3>
+                    <p class="descricao">Descrição</p>
+                    <p>Preço</p>
+                    <h3 class="oculto">Quantidade: </h3>
+                    <button class="btn btn-primary">Adicionar ao carrinho</button>
+                </div>
+            </div>
+        </section>
+    </main>
     <footer></footer>
 </body>
-<script src="./script.js"></script>
+
 </html>
