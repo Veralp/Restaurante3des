@@ -1,0 +1,71 @@
+@import url(../global.css);
+
+h3 {
+    color: var(--cor-quaternaria);
+    font-size: 20px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    color: var(--cor-quintenaria);
+    font-size: 14px;
+    overflow-y: auto;
+}
+
+main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0;
+    padding: 0;
+}
+
+tr {
+    border-bottom: 1px solid var(--cor-secundaria);
+}
+
+th {
+    padding: 10px;
+    text-align: center;
+    background-color: var(--cor-quaternaria);
+    color: var(--cor-sextanaria);
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+    color: var(--cor-quaternaria);
+}
+
+.oculto {
+    display: none;
+}
+
+@media(max-width: 800px) {
+    thead {
+        display: none;
+    }
+
+    tbody td {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        text-align: right;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+    }
+}

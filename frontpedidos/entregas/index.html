@@ -15,7 +15,7 @@
 <body>
     <header>
         <img class="sanduiche" src="../assets/menu.svg" alt="Menu" onclick="menu.classList.toggle('oculto')">
-        <h1>Restaurante XPTO - Pedidos</h1>
+        <h1>Restaurante XPTO - Entregas</h1>
         <nav class="nav-big">
             <ul>
                 <li><a href="../home">Home</a></li>
@@ -36,19 +36,20 @@
         </nav>
     </header>
     <main>
-        <section id="carrinho"></section>
-        <section id="cardapio">
-            <div class="card oculto" id="prato">
-                <img clas="img" src="../assets/prato.png" alt="Ilustração">
-                <div class="card-body">
-                    <h3>Nome do prato</h3>
-                    <p class="descricao">Descrição</p>
-                    <p>Preço</p>
-                    <h3 class="oculto">Quantidade: </h3>
-                    <button class="btn btn-primary">Adicionar ao carrinho</button>
-                </div>
-            </div>
-        </section>
+        <table>
+            <thead>
+                <th>Id</th>
+                <th>Cliente</th>
+                <th>Motoboy</th>
+                <th>Pedido</th>
+                <th>Cozinha</th>
+                <th>Entrega</th>
+                <th>Valor</th>
+                <th>Taxa de Entrega</th>
+                <th>Total</th>
+            </thead>
+            <tbody id="tcorpo"></tbody>
+        </table>
     </main>
     <footer></footer>
 </body>
