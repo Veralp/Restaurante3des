@@ -17,7 +17,6 @@ main {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     overflow-y: auto;
 }
 
@@ -38,6 +37,7 @@ th {
     text-align: center;
     background-color: var(--cor-quaternaria);
     color: var(--cor-sextanaria);
+    opacity: 0.5;
 }
 
 td {
@@ -60,7 +60,6 @@ td {
         width: 100%;
         overflow-x: auto;
         height: fit-content;
-        white-space: nowrap;
         text-align: right;
     }
 

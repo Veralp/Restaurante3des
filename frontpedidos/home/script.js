@@ -1,5 +1,6 @@
 var produtos = [];
 const pedido = {
+    total: 0,
     produtos: [],
 };
 
@@ -42,7 +43,7 @@ const adicionarAoCarrinho = (indice) => {
 const reconstruirCarrinho = () => {
     const carrinho = document.querySelector("#carrinho");
     carrinho.innerHTML = "";
-    let total = 0;
+    pedido.total = 0;
     pedido.produtos.forEach((prod, i) => {
         const prato = document.querySelector("#prato");
         let nPrato = prato.cloneNode(true);
@@ -55,17 +56,18 @@ const reconstruirCarrinho = () => {
         nPrato.childNodes[3].childNodes[9].innerHTML = "Remover";
         nPrato.childNodes[3].childNodes[9].setAttribute("onclick", `parentNode.parentNode.remove(this);removerDoCarrinho(${i})`);
         carrinho.appendChild(nPrato);
-        total += prod.preco * prod.quantidade;
+        pedido.total += prod.preco * prod.quantidade;
     });
     const botoes = document.createElement("div");
     botoes.innerHTML = "Total: R$";
     const totalPedido = document.createElement("input");
     totalPedido.setAttribute("type", "number");
-    totalPedido.setAttribute("value", total.toFixed(2));
+    totalPedido.setAttribute("value", pedido.total.toFixed(2));
     const enviarPedido = document.createElement("button");
     const limpar = document.createElement("button");
     enviarPedido.innerHTML = "Enviar Pedido";
     limpar.innerHTML = "Limpar Pedido";
+    enviarPedido.setAttribute("onclick", "enviarPedido()");
     limpar.setAttribute("onclick", "pedido.produtos = [];carrinho.innerHTML = '';");
     botoes.appendChild(totalPedido);
     botoes.appendChild(enviarPedido);
