@@ -12,8 +12,41 @@ api.get("/cardapio")
         listarProdutos();
     })
     .catch(err => {
+        alert("Erro ao carregar cardápio");
         console.log(err);
     });
+api.get("/motoboy")
+    .then(resp => {
+        const motoboy = document.querySelector("#motoboyId");
+        resp.data.forEach((m) => {
+            const option = document.createElement("option");
+            option.setAttribute("value", m.id);
+            option.innerHTML = m.nome;
+            motoboy.appendChild(option);
+        });
+    })
+    .catch(err => {
+        alert("Erro ao carregar motoboys");
+        console.log(err);
+    });
+
+const buscarClientes = (nome) => {
+    api.get("/cliente/" + nome)
+        .then(resp => {
+            const cliente = document.querySelector("#clienteId");
+            cliente.options.length = 0;
+            resp.data.forEach((c) => {
+                const option = document.createElement("option");
+                option.setAttribute("value", c.id);
+                option.innerHTML = c.nome;
+                cliente.appendChild(option);
+            });
+        })
+        .catch(err => {
+            alert("Erro ao carregar clientes");
+            console.log(err);
+        });
+}
 
 const listarProdutos = () => {
     const cardapio = document.querySelector("#cardapio");
@@ -63,14 +96,14 @@ const reconstruirCarrinho = () => {
     const totalPedido = document.createElement("input");
     totalPedido.setAttribute("type", "number");
     totalPedido.setAttribute("value", pedido.total.toFixed(2));
-    const enviarPedido = document.createElement("button");
+    const concluir = document.createElement("button");
     const limpar = document.createElement("button");
-    enviarPedido.innerHTML = "Enviar Pedido";
-    limpar.innerHTML = "Limpar Pedido";
-    enviarPedido.setAttribute("onclick", "enviarPedido()");
+    concluir.innerHTML = "Concluir Pedido";
+    limpar.innerHTML = "Limpar Carrinho";
+    concluir.setAttribute("onclick", "concluir()");
     limpar.setAttribute("onclick", "pedido.produtos = [];carrinho.innerHTML = '';");
     botoes.appendChild(totalPedido);
-    botoes.appendChild(enviarPedido);
+    botoes.appendChild(concluir);
     botoes.appendChild(limpar);
     carrinho.appendChild(botoes);
 }
@@ -78,4 +111,53 @@ const reconstruirCarrinho = () => {
 const removerDoCarrinho = (indice) => {
     pedido.produtos.splice(indice, 1);
     reconstruirCarrinho();
+}
+
+const concluir = () => {
+    const modal = document.querySelector("#modal");
+    modal.classList.remove("oculto");
+    const form = document.querySelector("#novoPedido");
+    form.valorPedido.value = pedido.total;
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const dados = {
+            clienteId: parseInt(form.clienteId.value),
+            motoboyId: parseInt(form.motoboyId.value),
+            valorPedido: parseFloat(form.valorPedido.value),
+            valorEntrega: parseFloat(form.valorEntrega.value),
+        }
+        api.post("/pedido",dados)
+            .then(resp => {
+                if(adicionarItens(resp.data.id)) {
+                    alert(`Pedido ${resp.data.id} enviado para Cozinha!`);
+                    window.location.reload();
+                }
+            })
+            .catch(err => {
+                alert("Erro ao cadastrar pedido");
+                console.log(err);
+            });
+    });
+}
+
+const adicionarItens = (idGerado) => {
+    pedido.produtos.forEach((prod) => {
+        const dados = {
+            pedidoId: parseInt(idGerado),
+            cardapioId: parseInt(prod.id),
+            quantidade: parseInt(prod.quantidade),
+            valor: parseFloat(prod.preco),
+        }
+        console.log(idGerado);
+        console.log(dados);
+        api.post("/itens", dados)
+            .then(resp => {
+                console.log("Item adicionado com sucesso");
+            })
+            .catch(err => {
+                alert("Erro ao cadastrar item");
+                console.log(err);
+            });
+    });
+    return true;
 }

@@ -50,7 +50,41 @@
             </div>
         </section>
     </main>
-    <footer></footer>
+    <footer>
+        <div id="modal" class="modal oculto">
+            <div class="modal-content">
+                <h2>Finalizar pedido</h2>
+                <form id="novoPedido">
+                    <div>
+                        <label for="cliente">Buscar Cliente:</label>
+                        <input type="text" placeholder="Digite o nome do cliente" onkeyup="buscarClientes(this.value)">
+                    </div>
+                    <div>
+                        <label for="clienteId">Cliente:</label>
+                        <select name="clienteId" id="clienteId">
+                            <option value="1" selected>Comer no local</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="motoboyId">Motoboy:</label>
+                        <select name="motoboyId" id="motoboyId">
+                            <option value="1" selected>Sem entrega</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="valorPedido">Valor do Pedido: R$</label>
+                        <input type="number" name="valorPedido">
+                    </div>
+                    <div>
+                        <label for="valorEntrega">Valor da Entrega: R$</label>
+                        <input type="number" value="0" name="valorEntrega">
+                    </div>
+                    <input type="submit" value="Enviar para Cozinha">
+                    <input type="button" value="Cancelar" onclick="modal.classList.add('oculto')">
+                </form>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

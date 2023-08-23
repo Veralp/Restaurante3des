@@ -15,13 +15,24 @@ const create = async (req, res) => {
 
 const read = async (req, res) => {
     if (req.params.id) {
-        const id = parseInt(req.params.id);
-        const cliente = await prisma.cliente.findUnique({
-            where: {
-                id: id
-            }
-        });
-        return res.json(cliente);
+        if (!isNaN(req.params.id)) {
+            const id = parseInt(req.params.id);
+            const cliente = await prisma.cliente.findUnique({
+                where: {
+                    id: id
+                }
+            });
+            return res.json(cliente);
+        }else{
+            const cliente = await prisma.cliente.findMany({
+                where: {
+                    nome: {
+                        contains: req.params.id
+                    }
+                }
+            });
+            return res.json(cliente);
+        }
     } else {
         const cliente = await prisma.cliente.findMany();
         return res.json(cliente);
