@@ -33,8 +33,8 @@ const listarPedidos = () => {
             <td data-label="Id:" >${p.id}</td>
             <td data-label="Id do Cliente:">${p.clienteId}</td>
             <td data-label="Id do Motoboi:">${p.motoboyId}</td>
-            <td data-label="Pedido:">${p.dataPedido.toString().slice(0,10)} ${p.dataPedido.toString().slice(11,16)}</td>
-            <td data-label="Cozinha:">${p.dataCozinha.toString().slice(0,10)} ${p.dataCozinha.toString().slice(11,16)}</td>
+            <td data-label="Pedido:">${p.dataPedido.toString().slice(0, 10)} ${p.dataPedido.toString().slice(11, 16)}</td>
+            <td data-label="Cozinha:">${p.dataCozinha.toString().slice(0, 10)} ${p.dataCozinha.toString().slice(11, 16)}</td>
             <td data-label="Valor do Pedido:">${p.valorPedido.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
             <td data-label="Valor da Entrega:">${p.valorEntrega.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
             <td data-label="Total:">${(p.valorEntrega + p.valorPedido).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
@@ -56,14 +56,15 @@ const listarPedidos = () => {
             <td data-label="Telefone:" colspan='2'>${p.cliente.telefones}</td>
         `;
         corpo.appendChild(cliente);
-
+        let cabecalho2 = document.createElement("tr");
+        cabecalho2.innerHTML = `
+            <th>Item Id</th>
+            <th>Quantidade</th>
+            <th  colspan='6'>Produto</th>
+        `;
+        corpo.appendChild(cabecalho2);
         p.itens.forEach((i, j) => {
-            let cabecalho = document.createElement("tr");
-            cabecalho.innerHTML = `
-                <th>Item Id</th>
-                <th>Quantidade</th>
-                <th  colspan='6'>Produto</th>
-            `;
+
             let item = document.createElement("tr");
             item.classList.add("item");
             item.innerHTML = `
@@ -71,10 +72,9 @@ const listarPedidos = () => {
                 <td data-label="Quantidade:">${i.quantidade}</td>
                 <td data-label="Produto:"  colspan='6'>${i.cardapio.produto}</td>
             `;
-            corpo.appendChild(cabecalho);
             corpo.appendChild(item);
         });
-        if(i >= 200){
+        if (i >= 200) {
             return;
         }
     });

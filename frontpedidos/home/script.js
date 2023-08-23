@@ -126,16 +126,20 @@ const concluir = () => {
             valorPedido: parseFloat(form.valorPedido.value),
             valorEntrega: parseFloat(form.valorEntrega.value),
         }
-        api.post("/pedido",dados)
-            .then(resp => {
-                if(adicionarItens(resp.data.id)) {
-                    window.location.href="../cozinha";
-                }
-            })
-            .catch(err => {
-                alert("Erro ao cadastrar pedido");
-                console.log(err);
-            });
+        if (dados.clienteId == 1 && dados.motoboyId != 1) {
+            alert("Escolha um cliente válido");
+        }else{
+            api.post("/pedido", dados)
+                .then(resp => {
+                    if (adicionarItens(resp.data.id)) {
+                        window.location.href = "../pedidos";
+                    }
+                })
+                .catch(err => {
+                    alert("Erro ao cadastrar pedido");
+                    console.log(err);
+                });
+        }
     });
 }
 

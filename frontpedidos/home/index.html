@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
     <script src="../node_modules/axios/dist/axios.js"></script>
     <script src="../api.js"></script>
     <script src="./script.js"></script>
@@ -68,16 +69,16 @@
                     <div>
                         <label for="motoboyId">Motoboy:</label>
                         <select name="motoboyId" id="motoboyId">
-                            <option value="1" selected>Sem entrega</option>
+                            <!-- <option value="1" selected>Sem entrega</option> -->
                         </select>
                     </div>
                     <div>
                         <label for="valorPedido">Valor do Pedido: R$</label>
-                        <input type="number" name="valorPedido">
+                        <input type="number" step="0.01" value="0.00" name="valorPedido">
                     </div>
                     <div>
                         <label for="valorEntrega">Valor da Entrega: R$</label>
-                        <input type="number" value="0" name="valorEntrega">
+                        <input type="number" step="0.01" value="0.00" name="valorEntrega">
                     </div>
                     <input type="submit" value="Enviar para Cozinha">
                     <input type="button" value="Cancelar" onclick="modal.classList.add('oculto')">

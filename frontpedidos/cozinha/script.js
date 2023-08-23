@@ -38,14 +38,15 @@ const listarPedidos = () => {
         `;
         corpo.appendChild(cabecalho);
         corpo.appendChild(pedido);
+        let cabecalho2 = document.createElement("tr");
+        cabecalho2.innerHTML = `
+            <th>Item Id</th>
+            <th>Quantidade</th>
+            <th>Produto</th>
+            <th colspan='6'>Descrição</th>
+        `;
+        corpo.appendChild(cabecalho2);
         p.itens.forEach((i, j) => {
-            let cabecalho = document.createElement("tr");
-            cabecalho.innerHTML = `
-                <th>Item Id</th>
-                <th>Quantidade</th>
-                <th>Produto</th>
-                <th colspan='6'>Descrição</th>
-            `;
             let item = document.createElement("tr");
             item.classList.add("item");
             item.innerHTML = `
@@ -54,7 +55,6 @@ const listarPedidos = () => {
                 <td data-label="Produto:">${i.cardapio.produto}</td>
                 <td data-label="Descrição:" colspan='6' style="max-width:400px">${i.cardapio.descricao}</td>
             `;
-            corpo.appendChild(cabecalho);
             corpo.appendChild(item);
         });
         if (i >= 200) {
