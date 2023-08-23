@@ -86,7 +86,7 @@ const readEntrega = async (req, res) => {
 const readHoje = async (req, res) => {
     try {
         const hoje = new Date().toISOString().slice(0, 10);
-        const result = await prisma.$queryRaw`SELECT * FROM Pedido WHERE dataPedido LIKE CONCAT(${hoje},'%')`;
+        const result = await prisma.$queryRaw`SELECT * FROM Pedido WHERE dataPedido LIKE CONCAT(${hoje},'%') OR dataEntrega is NULL`;
         return res.json(result).end();
     } catch (error) {
         return res.status(404).json({ error: error.message }).end();

@@ -129,8 +129,7 @@ const concluir = () => {
         api.post("/pedido",dados)
             .then(resp => {
                 if(adicionarItens(resp.data.id)) {
-                    alert(`Pedido ${resp.data.id} enviado para Cozinha!`);
-                    window.location.reload();
+                    window.location.href="../cozinha";
                 }
             })
             .catch(err => {
