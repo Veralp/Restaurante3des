@@ -46,6 +46,11 @@ main{
     flex-wrap: wrap;
 }
 
+canvas{
+    width: 100%;
+    height: 100%;
+}
+
 .nav-big ul {
     list-style: none;
     display: flex;
