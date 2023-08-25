@@ -11,27 +11,47 @@ api.get("/pedido")
         pedidos = resp.data;
     })
     .then(() => {
-        listarTodos();
         novoGrafico('chartTipos');
         novoGrafico('chartMotoboys');
         novoGrafico('chartDia');
     })
     .then(() => {
-        chartTipos();
-        chartMotoboys();
-        chartDia();
-        estatisticas();
+        valoresIniciais();
+        inputDatas();
+        carregar();
     })
     .catch(err => {
         console.log(err);
     });
 
+const carregar = () => {
+    const cards = document.querySelector("#cards");
+    cards.innerHTML = "";
+    listarTodos();
+    chartTipos();
+    chartMotoboys();
+    chartDia();
+    estatisticas();
+}
+
+const valoresIniciais = () => {
+    filtrados = [];
+    pedidos.forEach((p) => {
+        if (p.dataEntrega != null && p.dataCozinha != null) {
+            filtrados.push(p);
+        }
+    });
+    pedidos = [];
+    filtrados.forEach((p) => {
+        pedidos.push(p);
+    });
+}
+
 const listarTodos = () => {
     const corpo = document.querySelector("#tcorpo");
-    pedidos.forEach((p, i) => {
-        if (p.dataEntrega != null && p.dataCozinha != null) {
-            let pedido = document.createElement("tr");
-            pedido.innerHTML = `
+    filtrados.forEach((p, i) => {
+        let pedido = document.createElement("tr");
+        pedido.innerHTML = `
                     <td data-label="Id:" >${p.id}</td>
                     <td data-label="Id do Cliente:">${p.clienteId}</td>
                     <td data-label="Id do Motoboi:">${p.motoboyId}</td>
@@ -42,9 +62,8 @@ const listarTodos = () => {
                     <td data-label="Valor da Entrega:">${p.valorEntrega.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
                     <td data-label="Total:">${(p.valorEntrega + p.valorPedido).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
                 `;
-            corpo.appendChild(pedido);
-            filtrados.push(p);
-        }
+        corpo.appendChild(pedido);
+
     });
 }
 
@@ -54,21 +73,7 @@ const diferencaMinutos = (data1, data2) => {
     return minutos;
 }
 
-const addCard = (titulo, texto) => {
-    const cards = document.querySelector("#cards");
-    const card = document.createElement("div");
-    card.classList.add("card");
-    card.innerHTML = `
-        <div class="card-header">
-            ${titulo}
-        </div>
-        <div class="card-body">
-            <p class="card-text">${texto}</p>
-        </div>
-    `;
-    cards.appendChild(card);
-}
-
+//Gráficos
 const novoGrafico = (id) => {
     const cards = document.querySelector("#charts");
     const card = document.createElement("div");
@@ -96,7 +101,7 @@ const chartTipos = () => {
             labels: tipos,
             datasets: [{
                 label: 'Pedidos por tipo',
-                backgroundColor: [corPri, corSec],
+                backgroundColor: [corPri, corTer],
                 borderColor: [corPri, corSec],
                 data: pedidosTipos
             }]
@@ -173,7 +178,7 @@ const chartDia = () => {
             labels: dias,
             datasets: [{
                 label: 'Pedidos por dia',
-                backgroundColor: corPri,
+                backgroundColor: corTer,
                 borderColor: corPri,
                 data: pedidosDias
             }]
@@ -182,6 +187,94 @@ const chartDia = () => {
             responsive: true,
         }
     });
+}
+//Filtros
+const inputDatas = () => {
+    const data1 = document.querySelector("#data1");
+    const data2 = document.querySelector("#data2");
+    let dias = [];
+    pedidos.forEach((p) => {
+        if (dias.indexOf(p.dataPedido.toString().slice(0, 10)) == -1) {
+            dias.push(p.dataPedido.toString().slice(0, 10));
+        }
+    });
+    dias.forEach((p) => {
+        let option = document.createElement("option");
+        option.value = p;
+        option.innerHTML = p;
+        data1.appendChild(option);
+    });
+    dias.forEach((p) => {
+        let option = document.createElement("option");
+        option.value = p;
+        option.innerHTML = p;
+        data2.appendChild(option);
+    });
+}
+
+const filtrar = async () => {
+    const filtro1 = await filtrarDatas(pedidos);
+    const filtro2 = await filtrarEntregas(filtro1);
+    if (filtro2.length < pedidos.length) {
+        filtrados = [];
+        filtro2.forEach((p) => {
+            filtrados.push(p);
+        });
+        const corpo = document.querySelector("#tcorpo");
+        corpo.innerHTML = "";
+        carregar();
+    }
+}
+
+const filtrarEntregas = (dados) => {
+    const tipo = document.querySelector("#tipo").value;
+    let tipos = []
+    dados.forEach((p) => {
+        if (tipo == 2) {
+            if (p.motoboyId == 1) {
+                tipos.push(p);
+            }
+        } else if (tipo == 3) {
+            if (p.motoboyId != 1) {
+                tipos.push(p);
+            }
+        } else {
+            tipos.push(p);
+        }
+    });
+    return tipos;
+}
+
+const filtrarDatas = (dados) => {
+    const data1 = document.querySelector("#data1").value;
+    const data2 = document.querySelector("#data2").value;
+    let datas = [];
+    dados.forEach((p) => {
+        if (data1 < data2) {
+            if (p.dataPedido.toString().slice(0, 10) >= data1 && p.dataPedido.toString().slice(0, 10) <= data2) {
+                datas.push(p);
+            }
+        } else {
+            datas.push(p);
+        }
+    });
+    return datas;
+}
+
+//Cards
+const addCard = (titulo, texto) => {
+    const cards = document.querySelector("#cards");
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = `
+        <div class="card-header">
+            ${titulo}
+        </div>
+        <div class="card-body">
+            <p class="card-text">${texto}</p>
+        </div>
+    `;
+    cards.appendChild(card);
 }
 
 const estatisticas = () => {

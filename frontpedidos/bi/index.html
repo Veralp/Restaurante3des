@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script src="../node_modules/axios/dist/axios.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../api.js"></script>
     <script src="./script.js"></script>
     <title>Restauante XPTO</title>
@@ -38,6 +38,24 @@
     </header>
     <main>
         <section id="charts"> </section>
+        <section id="filtros">
+            <h1>Filtros</h1>
+            <label for="data1">De:</label>
+            <select id="data1" onchange="filtrar()">
+                <option value=""></option>
+            </select>
+            <label for="data2">Até:</label>
+            <select id="data2" onchange="filtrar()">
+                <option value=""></option>
+            </select>
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" onchange="filtrar()">
+                <option value="1">Todos</option>
+                <option value="2">Comer no local</option>
+                <option value="3">Entrega</option>
+            </select>
+            <input type="button" onclick="window.location.reload()" value="Reset">
+        </section>
         <section id="cards"> </section>
         <section>
             <table>

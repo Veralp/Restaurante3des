@@ -56,7 +56,8 @@ td {
     opacity: 0.8;
 }
 
-#cards,  #charts {
+#cards,
+#charts {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -81,7 +82,7 @@ td {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-.chart{
+.chart {
     width: 100%;
     max-width: 400px;
     height: 400px;
@@ -96,7 +97,7 @@ td {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-canvas{
+canvas {
     height: fit-content;
 }
 
@@ -135,6 +136,50 @@ canvas{
     text-align: center;
 }
 
+#filtros {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: fit-content;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+    background-color: var(--cor-quaternaria);
+    border-radius: 25px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+#filtros input,
+select {
+    width: 100%;
+    max-width: 200px;
+    height: 30px;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 25px;
+    border: none;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+#filtros select option {
+    font-size: medium;
+    text-align: center;
+}
+
+#filtros input[type="button"] {
+    width: 100%;
+    max-width: 100px;
+    height: 30px;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 25px;
+    border: none;
+    background-color: var(--cor-primaria);
+    color: var(--cor-quaternaria);
+    font-weight: bold;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
 .oculto {
     display: none;
 }
@@ -156,5 +201,9 @@ canvas{
         content: attr(data-label);
         float: left;
         font-weight: bold;
+    }
+
+    #filtros {
+        flex-direction: column;
     }
 }

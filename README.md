@@ -83,6 +83,24 @@ yarn web
 npx yarn
 npx yarn web
 ```
+### UI - Front-End Página para Gestão de Pedidos e Relatórios
+#### HML + CSS + Javascript (axios, charts)
+A página de gestão de pedidos apresenta funcionalidades de cadastro de pedidos, gerenciamento e análise de dados com BI (Inteligência de Negócios).
+- 0. Para executar, basta iniciar om LiveServer
+- OBS: As dependências **axios** e **charts** são importadas remotamente nos cabeçalhos dos arquivos index.html
+```html
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+```
+- Caso prefira utilizar localmente, instale com **npm**
+```bash
+npm install
+```
+- E altere os cabeçahos para
+```html
+<script src="../node_modules/axios/dist/axios.js"></script>
+<script src="../node_modules/carts.js/dist/charts.js"></script>
+```
 
 ### Aplicativo para Entregas (React Native + Expo)
 Esta versão do aplicativo trabalha melhor com o **yarn** como gerenciador de pacotes, porém pode utilizar npm e/ou npx se preferir
