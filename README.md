@@ -53,21 +53,6 @@ nodemon
 ```
 - Para testar a API abra o aplicativo **Insomnia** ou outro que preferir como **postman**.
 - No caso do Insomnia pode Importar o aquivo ./testes/Insomnia.json
-## MER x DER do Banco de Dados
-![MER](./documentos/der-conceitual.png)
-## WireFrames dos FrontEnd
-![Wireframe1](./documentos/wireframe01.png)
-![Wireframe1](./documentos/wireframe02.png)
-![Wireframe1](./documentos/wireframe03.png)
-![Wireframe1](./documentos/wireframe04.png)
-![Wireframe1](./documentos/wireframe05.png)
-![Wireframe1](./documentos/wireframe06.png)
-![Wireframe1](./documentos/wireframe07.png)
-![Wireframe1](./documentos/wireframe08.png)
-## WireFrames dos Apps
-![Wireframe1](./documentos/wireframe_apps_01.png)
-![Wireframe2](./documentos/wireframe_apps_02.png)
-![Wireframe3](./documentos/wireframe_apps_03.png)
 ### UI - Front-End Página para Gestão de Pedidos e Relatórios
 #### HML + CSS + Javascript (axios, charts)
 A página de gestão de pedidos apresenta funcionalidades de cadastro de pedidos, gerenciamento e análise de dados com BI (Inteligência de Negócios).
@@ -132,3 +117,19 @@ expo start -a
 ```bash
 npx expo start -a
 ```
+#Documentação:
+## MER x DER do Banco de Dados
+![MER](./documentos/der-conceitual.png)
+## WireFrames dos FrontEnd
+![Wireframe1](./documentos/wireframe01.png)
+![Wireframe1](./documentos/wireframe02.png)
+![Wireframe1](./documentos/wireframe03.png)
+![Wireframe1](./documentos/wireframe04.png)
+![Wireframe1](./documentos/wireframe05.png)
+![Wireframe1](./documentos/wireframe06.png)
+![Wireframe1](./documentos/wireframe07.png)
+![Wireframe1](./documentos/wireframe08.png)
+## WireFrames dos Apps
+![Wireframe1](./documentos/wireframe_apps_01.png)
+![Wireframe2](./documentos/wireframe_apps_02.png)
+![Wireframe3](./documentos/wireframe_apps_03.png)
