@@ -54,15 +54,34 @@ nodemon
 - Para testar a API abra o aplicativo **Insomnia** ou outro que preferir como **postman**.
 - No caso do Insomnia pode Importar o aquivo ./testes/Insomnia.json
 ## MER x DER do Banco de Dados
-![MER](./documentos/der.png)
+![MER](./documentos/der-conceitual.png)
 ## WireFrames dos Apps
 ![Wireframe1](./documentos/wireframe_apps_01.png)
 ![Wireframe2](./documentos/wireframe_apps_02.png)
 ![Wireframe3](./documentos/wireframe_apps_03.png)
+### UI - Front-End Página para Gestão de Pedidos e Relatórios
+#### HML + CSS + Javascript (axios, charts)
+A página de gestão de pedidos apresenta funcionalidades de cadastro de pedidos, gerenciamento e análise de dados com BI (Inteligência de Negócios).
+- 0. Para executar, basta iniciar om LiveServer
+- OBS: As dependências **axios** e **charts** são importadas remotamente nos cabeçalhos dos arquivos index.html
+```html
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+```
+- Caso prefira utilizar localmente, instale com **npm**
+```bash
+npm install
+```
+- E altere os cabeçahos para
+```html
+<script src="../node_modules/axios/dist/axios.js"></script>
+<script src="../node_modules/carts.js/dist/charts.js"></script>
+```
+#### para executar o Frontend
+- Basta abrir com **LiveServer**
 
 ### Aplicativo para Cozinha (React Native + Expo)
 Esta versão do aplicativo trabalha melhor com o **yarn** como gerenciador de pacotes, porém pode utilizar npm e/ou npx se preferir
-
 #### Para executar o aplicativo da cozinha
 - 0. Confira se possui o expo instalado
 ```bash
@@ -83,28 +102,8 @@ yarn web
 npx yarn
 npx yarn web
 ```
-### UI - Front-End Página para Gestão de Pedidos e Relatórios
-#### HML + CSS + Javascript (axios, charts)
-A página de gestão de pedidos apresenta funcionalidades de cadastro de pedidos, gerenciamento e análise de dados com BI (Inteligência de Negócios).
-- 0. Para executar, basta iniciar om LiveServer
-- OBS: As dependências **axios** e **charts** são importadas remotamente nos cabeçalhos dos arquivos index.html
-```html
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-```
-- Caso prefira utilizar localmente, instale com **npm**
-```bash
-npm install
-```
-- E altere os cabeçahos para
-```html
-<script src="../node_modules/axios/dist/axios.js"></script>
-<script src="../node_modules/carts.js/dist/charts.js"></script>
-```
-
 ### Aplicativo para Entregas (React Native + Expo)
 Esta versão do aplicativo trabalha melhor com o **yarn** como gerenciador de pacotes, porém pode utilizar npm e/ou npx se preferir
-
 #### Para executar o aplicativo de Entregas no emulador
 - 0. Confira se possui o expo instalado
 ```bash

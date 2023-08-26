@@ -23,7 +23,7 @@
                 <li><a href="../pedidos">Pedidos</a></li>
                 <li><a href="../cozinha">Na cozinha</a></li>
                 <li><a href="../entregas">Em entrega</a></li>
-                <li><a href="../bi">BI</a></li>
+                <li><a href="../bi">BI - DashBoard</a></li>
             </ul>
         </nav>
         <nav id="menu" class="nav-small oculto">
@@ -32,21 +32,16 @@
                 <li><a href="../pedidos">Pedidos</a></li>
                 <li><a href="../cozinha">Na cozinha</a></li>
                 <li><a href="../entregas">Em entrega</a></li>
-                <li><a href="../bi">BI</a></li>
+                <li><a href="../bi">BI - DashBoard</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="charts"> </section>
         <section id="filtros">
             <h1>Filtros</h1>
             <label for="data1">De:</label>
-            <select id="data1" onchange="filtrar()">
-                <option value=""></option>
-            </select>
-            <label for="data2">Até:</label>
-            <select id="data2" onchange="filtrar()">
-                <option value=""></option>
+            <select id="data1" onchange="filtrar()"> </select>
+            <label for="data2">Até:</label> <select id="data2" onchange="filtrar()">
             </select>
             <label for="tipo">Tipo:</label>
             <select id="tipo" onchange="filtrar()">
@@ -56,6 +51,7 @@
             </select>
             <input type="button" onclick="window.location.reload()" value="Reset">
         </section>
+        <section id="charts"> </section>
         <section id="cards"> </section>
         <section>
             <table>

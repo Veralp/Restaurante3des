@@ -11,11 +11,6 @@ api.get("/pedido")
         pedidos = resp.data;
     })
     .then(() => {
-        novoGrafico('chartTipos');
-        novoGrafico('chartMotoboys');
-        novoGrafico('chartDia');
-    })
-    .then(() => {
         valoresIniciais();
         inputDatas();
         carregar();
@@ -25,6 +20,11 @@ api.get("/pedido")
     });
 
 const carregar = () => {
+    const charts = document.querySelector("#charts");
+    charts.innerHTML = "";
+    novoGrafico('chartTipos');
+    novoGrafico('chartMotoboys');
+    novoGrafico('chartDia');
     const cards = document.querySelector("#cards");
     cards.innerHTML = "";
     listarTodos();
@@ -124,7 +124,7 @@ const chartMotoboys = () => {
     });
     motoboys.forEach((p) => {
         let contador = 0;
-        pedidos.forEach((p2) => {
+        filtrados.forEach((p2) => {
             if (p2.motoboyId == p) {
                 contador++;
             }
@@ -204,9 +204,13 @@ const inputDatas = () => {
         option.innerHTML = p;
         data1.appendChild(option);
     });
-    dias.forEach((p) => {
+    let ultimo = dias.length - 1;
+    dias.forEach((p, i) => {
         let option = document.createElement("option");
         option.value = p;
+        if (i == ultimo) {
+            option.selected = true;
+        }
         option.innerHTML = p;
         data2.appendChild(option);
     });
@@ -215,15 +219,13 @@ const inputDatas = () => {
 const filtrar = async () => {
     const filtro1 = await filtrarDatas(pedidos);
     const filtro2 = await filtrarEntregas(filtro1);
-    if (filtro2.length < pedidos.length) {
-        filtrados = [];
-        filtro2.forEach((p) => {
-            filtrados.push(p);
-        });
-        const corpo = document.querySelector("#tcorpo");
-        corpo.innerHTML = "";
-        carregar();
-    }
+    filtrados = [];
+    filtro2.forEach((p) => {
+        filtrados.push(p);
+    });
+    const corpo = document.querySelector("#tcorpo");
+    corpo.innerHTML = "";
+    carregar();
 }
 
 const filtrarEntregas = (dados) => {
@@ -255,7 +257,9 @@ const filtrarDatas = (dados) => {
                 datas.push(p);
             }
         } else {
-            datas.push(p);
+            if (p.dataPedido.toString().slice(0, 10) >= data2 && p.dataPedido.toString().slice(0, 10) <= data1) {
+                datas.push(p);
+            }
         }
     });
     return datas;
@@ -286,7 +290,6 @@ const estatisticas = () => {
     let valorTotalEntrega = 0;
     let freteTotal = 0;
     filtrados.forEach((p, i) => {
-
         if (p.motoboyId != 1) {
             tempoMedioEntrega += diferencaMinutos(new Date(p.dataEntrega), new Date(p.dataCozinha));
             contadorEntregas++;
@@ -296,7 +299,6 @@ const estatisticas = () => {
         tempoMedioCozinha += diferencaMinutos(new Date(p.dataCozinha), new Date(p.dataPedido));
         contadorCozinha++;
         valorTotal += p.valorPedido;
-
     });
     tempoMedioEntrega /= contadorEntregas;
     tempoMedioCozinha /= contadorCozinha;

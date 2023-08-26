@@ -149,9 +149,13 @@ canvas {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
+#filtros h1{
+    margin: 10px;
+}
+
 #filtros input,
 select {
-    width: 100%;
+    width: fit-content;
     max-width: 200px;
     height: 30px;
     margin: 5px;
@@ -167,7 +171,7 @@ select {
 }
 
 #filtros input[type="button"] {
-    width: 100%;
+    width: 100px;
     max-width: 100px;
     height: 30px;
     margin: 5px;
@@ -205,5 +209,11 @@ select {
 
     #filtros {
         flex-direction: column;
+        width: 100%;
+    }
+
+    #filtros input, select{
+        width: 100%;
+        max-width: 100%;
     }
 }
