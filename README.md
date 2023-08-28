@@ -117,6 +117,10 @@ expo start -a
 ```bash
 npx expo start -a
 ```
+- 3. Para testar com ExpoGo no celular ou Emulador, altere o IP da API em ./appentregas/src/screens/entregas/index.js na linha11 para o seu.
+```cmd
+ipconfig
+```
 #Documentação:
 ## MER x DER do Banco de Dados
 ![MER](./documentos/der-conceitual.png)

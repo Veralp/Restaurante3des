@@ -8,7 +8,7 @@ const EntregasScreen = ({ navigation }) => {
 
     const [pedidos, setPedidos] = useState([]);
     //const uri = 'http://localhost:3000/pedido';
-    const uri = 'http://172.16.1.162:3000/pedido';
+    const uri = 'http://192.168.1.19:3000/pedido';
 
     useEffect(() => {
         fetch(uri + '/entrega', { method: 'GET' })
