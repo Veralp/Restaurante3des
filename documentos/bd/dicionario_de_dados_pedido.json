@@ -1,0 +1,30 @@
+	{
+		"id": 48,
+		"clienteId": 2,
+		"motoboyId": 3,
+		"dataPedido": "2023-08-28T08:14:13.000Z",
+		"dataCozinha": "2023-08-28T11:47:43.398Z",
+		"dataEntrega": null,
+		"valorPedido": 30,
+		"valorEntrega": 0,
+		"itens": [
+			{
+				"quantidade": 1,
+				"cardapio": {
+					"id": 2,
+					"produto": "Parmegiana de Carne",
+					"descricao": "Filé mignon empanado, coberto com molho de tomate, presunto e queijo mussarela gratinado. Acompanha arroz branco e fritas.",
+					"preco": 30
+				}
+			}
+		],
+		"cliente": {
+			"id": 2,
+			"cpf": "443.785.553-10",
+			"nome": "Jaqueline Souza Martim",
+			"telefones": "19-85916-8673, 19-70565-8763",
+			"enderecoCep": "13917-152",
+			"enderecoNumero": "105",
+			"enderecoComplemento": null
+		}
+	},
